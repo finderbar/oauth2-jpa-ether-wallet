@@ -2,6 +2,8 @@ package com.mfinder.mlucard.security;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.env.Environment;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -12,9 +14,8 @@ import org.springframework.security.oauth2.config.annotation.web.configurers.Aut
 import org.springframework.security.oauth2.provider.token.store.JdbcTokenStore;
 
 
-//@Configuration
-//@PropertySource({ "classpath:persistence.properties" })
-//@EnableAuthorizationServer
+@Configuration
+@PropertySource({ "classpath:persistence.properties" })
 public class AuthorizationServerConfigInMemory extends AuthorizationServerConfigurerAdapter {
 	
 	@Autowired
@@ -65,7 +66,7 @@ public class AuthorizationServerConfigInMemory extends AuthorizationServerConfig
 	// END POINTS CONFIG
 	@Override
 	public void configure(final AuthorizationServerEndpointsConfigurer endpoints) throws Exception {
-		
+		// something to do
 	}
 	
 }

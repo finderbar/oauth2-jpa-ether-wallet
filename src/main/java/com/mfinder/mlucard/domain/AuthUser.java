@@ -10,7 +10,7 @@ import javax.persistence.Id;
  * @createdAt Mar 16, 2019
  */
 
-@Entity(name = "wallet")
+@Entity(name="user")
 public class AuthUser {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

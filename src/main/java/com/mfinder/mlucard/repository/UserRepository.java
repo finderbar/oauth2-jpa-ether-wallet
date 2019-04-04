@@ -3,7 +3,7 @@ package com.mfinder.mlucard.repository;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.mfinder.mlucard.domain.Wallet;
+import com.mfinder.mlucard.domain.AuthUser;
 
 /**
  * @author thein
@@ -11,6 +11,6 @@ import com.mfinder.mlucard.domain.Wallet;
  */
 
 @Repository
-public interface WalletRepository extends JpaRepository<Wallet, Long>{
+public interface UserRepository extends JpaRepository<AuthUser, Long>{
 
 }
