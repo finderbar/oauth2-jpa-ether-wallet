@@ -1,6 +1,3 @@
-/**
- * 
- */
 package com.mfinder.mlucard.filter;
 
 /**
