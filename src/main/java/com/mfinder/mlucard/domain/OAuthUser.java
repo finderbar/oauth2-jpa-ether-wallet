@@ -1,14 +1,11 @@
 package com.mfinder.mlucard.domain;
 
-import java.util.List;
 
-import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 
 /**
  * @author thein
@@ -16,38 +13,15 @@ import javax.persistence.OneToMany;
  */
 
 @Entity(name = "users")
-public class AuthUser {
+public class OAuthUser {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
+
+	@Column(name = "username", nullable = false, length = 45)
 	private String userName;
 	private String email;
 	private String password;
-	
-	@OneToMany(fetch = FetchType.EAGER, cascade=CascadeType.ALL) 
-	private List<UserRole> roles;
-
-	public AuthUser() {
-	}
-	
-
-	/**
-	 * @param id
-	 * @param userName
-	 * @param email
-	 * @param password
-	 * @param roles
-	 */
-	public AuthUser(Long id, String userName, String email, String password, List<UserRole> roles) {
-		super();
-		this.id = id;
-		this.userName = userName;
-		this.email = email;
-		this.password = password;
-		this.roles = roles;
-	}
-
-
 
 	public Long getId() {
 		return id;
@@ -79,14 +53,6 @@ public class AuthUser {
 
 	public void setPassword(String password) {
 		this.password = password;
-	}
-
-	public List<UserRole> getRoles() {
-		return roles;
-	}
-
-	public void setRoles(List<UserRole> roles) {
-		this.roles = roles;
 	}
 
 }
