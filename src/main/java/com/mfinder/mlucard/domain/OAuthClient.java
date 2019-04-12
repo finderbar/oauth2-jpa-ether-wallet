@@ -2,41 +2,43 @@ package com.mfinder.mlucard.domain;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Id;
 
 @Entity(name = "oauth_client_details")
 public class OAuthClient {
 
-	@Column(name = "client_id", nullable = false, length = 45)
+	@Id
+	@Column(name = "client_id")
 	private String clientId;
 
-	@Column(name = "resource_id", nullable = false, length = 45)
+	@Column(name = "resource_id")
 	private String resourceId;
 
-	@Column(name = "client_secret", nullable = false, length = 45)
+	@Column(name = "client_secret")
 	private String clientSerect;
 
-	@Column(name = "scope", nullable = false, length = 45)
+	@Column(name = "scope")
 	private String scope;
 
-	@Column(name = "authorized_grant_types", nullable = false, length = 45)
+	@Column(name = "authorized_grant_types")
 	private String authGrantTypes;
 
-	@Column(name = "web_server_redirect_uri", nullable = false, length = 45)
+	@Column(name = "web_server_redirect_uri")
 	private String redirectUri;
 
-	@Column(name = "authorities", nullable = false, length = 45)
+	@Column(name = "authorities")
 	private String authorities;
 
-	@Column(name = "access_token_validity", nullable = false, length = 45)
+	@Column(name = "access_token_validity")
 	private Integer accessTokenValidity;
 
-	@Column(name = "refresh_token_validity", nullable = false, length = 45)
+	@Column(name = "refresh_token_validity")
 	private Integer refreshTokenValidity;
 
-	@Column(name = "additional_information", nullable = false, length = 45)
+	@Column(name = "additional_information")
 	private String additionalInfo;
 
-	@Column(name = "autoapprove", nullable = false, length = 45)
+	@Column(name = "autoapprove")
 	private String autoApprove;
 
 	public String getClientId() {

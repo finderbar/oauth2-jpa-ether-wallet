@@ -1,18 +1,19 @@
 package com.mfinder.mlucard.domain;
 
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 /**
  * @author thein
  * @createdAt Mar 16, 2019
  */
 
-@Entity(name = "users")
+@Entity
+@Table(name = "users")
 public class OAuthUser {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)

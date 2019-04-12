@@ -1,10 +1,14 @@
 package com.mfinder.mlucard.domain;
 
 import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
  
 
-@Entity(name = "oauth_code")
+@Entity
+@Table(name = "oauth_code")
 public class OAuthCode {
+	@Id
 	private String code;
 	private String authentication;
 	public String getCode() {

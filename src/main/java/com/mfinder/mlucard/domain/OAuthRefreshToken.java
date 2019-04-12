@@ -2,15 +2,21 @@ package com.mfinder.mlucard.domain;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
-@Entity(name = "oauth_refresh_token")
+@Entity
+@Table(name = "oauth_refresh_token")
 public class OAuthRefreshToken {
 
-	@Column(name = "token_id", nullable = false, length = 45)
+	@Id
+	@Column(name = "token_id")
 	private String tokenId;
-	@Column(name = "token", nullable = false, length = 45)
+	
+	@Column(name = "token")
 	private String token;
-	@Column(name = "authentication", nullable = false, length = 45)
+	
+	@Column(name = "authentication")
 	private String authentication;
 
 	public String getTokenId() {
