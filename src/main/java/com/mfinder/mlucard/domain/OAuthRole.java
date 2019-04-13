@@ -18,17 +18,25 @@ public class OAuthRole {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	
-	@Column(name = "username", nullable = false, length = 45)
-	private Long userName;
+	@Column(name = "username")
+	private String userName;
 
-	@Column(name = "authority", nullable = false, length = 45)
+	@Column(name = "authority")
 	private String authority;
 
-	public Long getUserName() {
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public String getUserName() {
 		return userName;
 	}
 
-	public void setUserName(Long userName) {
+	public void setUserName(String userName) {
 		this.userName = userName;
 	}
 
@@ -39,5 +47,4 @@ public class OAuthRole {
 	public void setAuthority(String authority) {
 		this.authority = authority;
 	}
-
 }
