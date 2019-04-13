@@ -6,16 +6,16 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-import com.mfinder.mlucard.repository.UserRepository;
-import com.mfinder.mlucard.repository.UserRoleRepository;
+import com.mfinder.mlucard.repository.OAuthUserRepository;
+import com.mfinder.mlucard.repository.OAuthUserRoleRepository;
 
 @Service("cmtuserDetailsService")
 public class CustomUserDetailsService implements UserDetailsService {
-	private final UserRepository userRepo;
-	private final UserRoleRepository userRoleRepo;
+	private final OAuthUserRepository userRepo;
+	private final OAuthUserRoleRepository userRoleRepo;
 
 	@Autowired(required = true)
-	public CustomUserDetailsService(UserRepository userRepo, UserRoleRepository userRoleRepo) {
+	public CustomUserDetailsService(OAuthUserRepository userRepo, OAuthUserRoleRepository userRoleRepo) {
 		this.userRepo = userRepo;
 		this.userRoleRepo = userRoleRepo;
 	}

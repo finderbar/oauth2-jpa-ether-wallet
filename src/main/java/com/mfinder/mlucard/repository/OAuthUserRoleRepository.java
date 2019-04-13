@@ -10,5 +10,4 @@ import com.mfinder.mlucard.domain.OAuthRole;
  * @createdAt Apr 7, 2019
  */
 @Repository("userRoleRepo")
-public interface UserRoleRepository extends JpaRepository<OAuthRole, Long> {
-}
+public interface OAuthUserRoleRepository extends JpaRepository<OAuthRole, Long> {}

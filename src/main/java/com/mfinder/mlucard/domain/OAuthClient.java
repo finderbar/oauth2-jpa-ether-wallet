@@ -2,12 +2,17 @@ package com.mfinder.mlucard.domain;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity(name = "oauth_client_details")
 public class OAuthClient {
 
 	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private Long id;
+	
 	@Column(name = "client_id")
 	private String clientId;
 

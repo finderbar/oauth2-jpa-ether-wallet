@@ -5,15 +5,13 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Table;
 
 /**
  * @author thein
  * @createdAt Mar 16, 2019
  */
 
-@Entity
-@Table(name = "users")
+@Entity(name = "users")
 public class OAuthUser {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)

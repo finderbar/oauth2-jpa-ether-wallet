@@ -11,6 +11,4 @@ import com.mfinder.mlucard.domain.OAuthUser;
  */
 
 @Repository("userRepo")
-public interface UserRepository extends JpaRepository<OAuthUser, Long> {
-	OAuthUser findByUserName(String userName);
-}
+public interface OAuthUserRepository extends JpaRepository<OAuthUser, Long> {}

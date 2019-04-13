@@ -2,14 +2,17 @@ package com.mfinder.mlucard.domain;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Table;
 
-@Entity
-@Table(name = "oauth_access_token")
+@Entity(name = "oauth_access_token")
 public class OAuthAccessToken {
 	
 	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private Long id;
+	
 	@Column(name = "token_id")
 	private String tokenId;
 
