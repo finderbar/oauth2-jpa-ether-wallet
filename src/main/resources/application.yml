@@ -12,3 +12,6 @@ spring:
   jackson:
     serialization:
       INDENT_OUTPUT: true
+      
+  thymeleaf:
+    cache: false
