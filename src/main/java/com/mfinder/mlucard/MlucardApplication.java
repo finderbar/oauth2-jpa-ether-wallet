@@ -11,7 +11,7 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 @EntityScan("com.mfinder.mlucard")
 @EnableJpaRepositories("com.mfinder.mlucard")
 @ComponentScan(basePackages = { "com.mfinder.mlucard" })
-//@EnableAutoConfiguration
+@EnableAutoConfiguration
 public class MlucardApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(MlucardApplication.class, args);
