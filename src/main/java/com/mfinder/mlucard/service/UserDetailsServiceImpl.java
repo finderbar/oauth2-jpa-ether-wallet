@@ -34,7 +34,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 			customUserDetails.setPassword(authUser.getPassword());
 			Set<GrantedAuthority> authorities = new HashSet<GrantedAuthority>();
 			for (UserAuthority authority : authUser.getUserAuthorities()) {
-				authorities.add(new CustomGrantedAuthority(authority.getAuthority().getName()));
+				authorities.add(new CustomGrantedAuthority(authority.getAuthority().getUserName()));
 			}
 			customUserDetails.setGrantedAuthorities(authorities);
 			return customUserDetails;

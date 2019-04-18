@@ -2,12 +2,11 @@ package com.mfinder.mlucard.config;
 
 import java.security.KeyPair;
 
-import javax.sql.DataSource;
-
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.oauth2.config.annotation.configurers.ClientDetailsServiceConfigurer;
 import org.springframework.security.oauth2.config.annotation.web.configuration.AuthorizationServerConfigurerAdapter;
@@ -15,6 +14,7 @@ import org.springframework.security.oauth2.config.annotation.web.configuration.E
 import org.springframework.security.oauth2.config.annotation.web.configurers.AuthorizationServerEndpointsConfigurer;
 import org.springframework.security.oauth2.config.annotation.web.configurers.AuthorizationServerSecurityConfigurer;
 import org.springframework.security.oauth2.provider.ClientDetailsService;
+import org.springframework.security.oauth2.provider.client.JdbcClientDetailsService;
 import org.springframework.security.oauth2.provider.token.DefaultTokenServices;
 import org.springframework.security.oauth2.provider.token.TokenStore;
 import org.springframework.security.oauth2.provider.token.store.JwtAccessTokenConverter;
@@ -28,16 +28,23 @@ import com.mfinder.mlucard.utilities.SecurityProperties;
 @EnableConfigurationProperties(SecurityProperties.class)
 public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdapter {
 
-	private final DataSource dataSource;
 	private final PasswordEncoder passwordEncoder;
 	private final AuthenticationManager authenticationManager;
 	private final SecurityProperties securityProperties;
+	private final JdbcClientDetailsService jdbcClientDetailsService;
+	private final UserDetailsService userDetailsService;
+	
 	private JwtAccessTokenConverter jwtAccessTokenConverter;
 	private TokenStore tokenStore;
 
-	public AuthorizationServerConfig(final DataSource dataSource, final PasswordEncoder passwordEncoder,
-			final AuthenticationManager authenticationManager, final SecurityProperties securityProperties) {
-		this.dataSource = dataSource;
+	public AuthorizationServerConfig(
+			final JdbcClientDetailsService jdbcClientDetailsService,
+			final UserDetailsService userDetailsService,
+			final PasswordEncoder passwordEncoder,
+			final AuthenticationManager authenticationManager, 
+			final SecurityProperties securityProperties) {
+		this.jdbcClientDetailsService = jdbcClientDetailsService;
+		this.userDetailsService = userDetailsService;
 		this.passwordEncoder = passwordEncoder;
 		this.authenticationManager = authenticationManager;
 		this.securityProperties = securityProperties;
@@ -45,7 +52,7 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
 	
 	@Override
     public void configure(final ClientDetailsServiceConfigurer clients) throws Exception {
-        clients.jdbc(this.dataSource);
+		clients.withClientDetails(this.jdbcClientDetailsService);
     }
 
 	@Override
@@ -56,8 +63,10 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
 
 	@Override
 	public void configure(final AuthorizationServerEndpointsConfigurer endpoints) {
-		endpoints.authenticationManager(this.authenticationManager).accessTokenConverter(jwtAccessTokenConverter())
-				.tokenStore(tokenStore());
+		endpoints.authenticationManager(this.authenticationManager)
+		.userDetailsService(this.userDetailsService)
+		.accessTokenConverter(jwtAccessTokenConverter())
+		.tokenStore(tokenStore());
 	}
 
 	@Bean
@@ -103,3 +112,4 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
 	}
 
 }
+

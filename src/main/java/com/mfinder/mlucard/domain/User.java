@@ -16,7 +16,7 @@ import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 
 @Entity
-@Table(name="user", uniqueConstraints = @UniqueConstraint(columnNames = {"userName"}, name="USER_UNIQUE_USERNAME"))
+@Table(name="users", uniqueConstraints = @UniqueConstraint(columnNames = {"userName"}, name="USER_UNIQUE_USERNAME"))
 public class User {
 
 	@Id
@@ -24,7 +24,7 @@ public class User {
 	@Column(name = "ID")
 	private Long id;
 
-	@Column(length=50)
+	@Column(name="username", length=50)
 	private String userName;
 
 	@Column

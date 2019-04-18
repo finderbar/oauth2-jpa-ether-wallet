@@ -1,6 +1,5 @@
 package com.mfinder.mlucard.domain;
 
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -10,32 +9,42 @@ import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 
 @Entity
-@Table(name="authority", uniqueConstraints = @UniqueConstraint(columnNames = {"name"}, name="AUTHORITY_UNIQUE_NAME"))
+@Table(name = "authorities", uniqueConstraints = @UniqueConstraint(columnNames = {
+		"userName" }, name = "AUTHORITY_UNIQUE_NAME"))
 public class Authority {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "ID", columnDefinition = "bigint unsigned")
-	private Integer id;
+	private Long id;
 
-	@Column(length=20)
-	private String name;
+	@Column(name = "username", length = 20)
+	private String userName;
 
-	public Integer getId() {
+	private String authority;
+
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(Integer id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
-	public String getName() {
-		return name;
+	public String getUserName() {
+		return userName;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
+
+	public String getAuthority() {
+		return authority;
+	}
+
+	public void setAuthority(String authority) {
+		this.authority = authority;
 	}
 
 }
-
