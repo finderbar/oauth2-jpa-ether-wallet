@@ -65,16 +65,15 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	
 	}
 	
-	@Override
-	protected void configure(HttpSecurity http) throws Exception {
-		http
-			.requestMatchers()
-			.antMatchers("/index.html", "/home.html", "/", "/login","/register.html")
-			.and()
-	        .authorizeRequests()
-	        .anyRequest().authenticated();
-	}
-	
+//	@Override
+//	protected void configure(HttpSecurity http) throws Exception {
+//		http
+//        .csrf().disable()
+//        .anonymous().disable()
+//        .authorizeRequests()
+//        .antMatchers("/index.html", "/home.html", "/", "/login","/register.html").permitAll();
+//	}
+//	
 }
 
 

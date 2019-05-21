@@ -4,9 +4,9 @@ server:
 security:
   jwt:
     key-store: classpath:keystore.jks
-    key-store-password: letmein
+    key-store-password: theinlwin
     key-pair-alias: mytestkey
-    key-pair-password: changeme
+    key-pair-password: finderbar
 
 spring:
   jackson:
@@ -20,12 +20,5 @@ spring:
     enabled: true
     encoding: UTF-8
     mode: HTML
-    prefix: classpath:/templates/
+    prefix: classpath:/views/
     suffix: .html
-    
-logging:
-  level:
-    root: WARN
-    com.memorynotfound: DEBUG
-    org.springframework.web: INFO
-    org.springframework.security: INFO

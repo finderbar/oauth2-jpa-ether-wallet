@@ -17,24 +17,8 @@ public class HomeController {
         return "index";
     }
 	
-	@GetMapping("/index.html")
-	public String indexXtml() {
-		System.out.print("hello owrld");
-		return "index.html";
-	}
-
-    @GetMapping("/user")
-    public String userIndex() {
-        return "user/index";
-    }
-
     @GetMapping("/login")
     public String login() {
         return "login";
-    }
-
-    @GetMapping("/access-denied")
-    public String accessDenied() {
-        return "/error/access-denied";
     }
 }
