@@ -18,4 +18,7 @@ public class SecurityConstants {
 	public static final String TOKEN_TYPE = "JWT";
 	public static final String TOKEN_ISSUER = "secure-api";
 	public static final String TOKEN_AUDIENCE = "secure-app";
+	
+	
+	public static final String API_ENDPOINTS = "/api/";
 }
