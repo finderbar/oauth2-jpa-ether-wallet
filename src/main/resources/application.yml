@@ -5,7 +5,7 @@ security:
   jwt:
     key-store: classpath:keystore.jks
     key-store-password: theinlwin
-    key-pair-alias: mytestkey
+    key-pair-alias: jwt
     key-pair-password: finderbar
 
 spring:
